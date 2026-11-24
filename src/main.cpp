@@ -60,7 +60,7 @@ namespace YimMenu
 
 		ScriptPointers::Init();
 
-		if (!D3D12Hook::Init())
+		while (!D3D12Hook::Init()) { std::this_thread::sleep_for(250ms); if (!g_Running) goto EARLY_UNLOAD; } if (false)
 			goto EARLY_UNLOAD;
 		Renderer::Init();
 		while (!Renderer::IsInitialized())
