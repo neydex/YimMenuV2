@@ -7,11 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate CMake project
-        run: cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
-      - name: Build 64bit Release DLL
-        run: cmake --build ./build --config Release --target YimMenuV2
+        run: cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -S . -B build
+      - name: Build 64bit RelWithDebInfo DLL
+        run: cmake --build ./build --config RelWithDebInfo --target YimMenuV2
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: YimMenuV2-Windows
-          path: build/Release/YimMenuV2.dll
+          path: build/RelWithDebInfo/YimMenuV2.dll
